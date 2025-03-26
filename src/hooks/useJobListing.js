@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 
-const APP_ID = process.env.REACT_APP_ADZUNA_APP_ID;
-const APP_KEY = process.env.REACT_APP_ADZUNA_API_KEY;
+export const APP_ID = process.env.REACT_APP_ADZUNA_APP_ID;
+export const APP_KEY = process.env.REACT_APP_ADZUNA_API_KEY;
 
 /**
  * Custom hook for fetching and managing job listings

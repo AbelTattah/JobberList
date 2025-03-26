@@ -26,7 +26,8 @@
 }
 
 .text {
-    color: #666;
+    color: #8D6E6E;
+    font-weight: 300;
     line-height: 20px;
     font-size: 14px;
     margin: 0;
@@ -41,19 +42,13 @@
 }
 
 .link {
-    color: #444;
-    font-weight: 500;
     font-size: 14px;
     background: none;
     border: none;
     padding: 0;
+    text-decoration: none;
     cursor: pointer;
     text-align: left;
-}
-
-.link:hover {
-    color: #1a73e8;
-    text-decoration: underline;
 }
 
 .divider {

@@ -5,9 +5,11 @@ import ResponsiveHeader from '../../components/header/Header';
 import { Colors } from '../../constants/Colors';
 import CustomButton from '../../components/customButton/CustomButton';
 import Loader from '../../components/loader/Loader';
+import { APP_ID, APP_KEY } from '../../hooks/useJobListing';
+import axios from 'axios';
 
 const JobDetailPage = () => {
-  const { jobId } = useParams();
+  const { id } = useParams();
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [job, setJob] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -16,16 +18,19 @@ const JobDetailPage = () => {
   const isMobile = windowWidth < 768;
 
   const fetchJobDetails = async () => {
+    console.log(`https://api.adzuna.com/v1/api/jobs/gb/${id}?app_id=${APP_ID}&app_key=${APP_KEY}`)
     try {
-      const response = await fetch(
-        `https://api.adzuna.com/v1/api/jobs/gb/${jobId}?app_id=YOUR_ID&app_key=YOUR_KEY`
+      const response = await axios.get(
+        `https://api.adzuna.com/v1/api/jobs/gb/${id}?app_id=${APP_ID}&app_key=${APP_KEY}`
       );
       
       if (!response.ok) throw new Error('Failed to fetch job details');
       
-      const data = await response.json();
+      const data = await response.data;
       setJob(data);
+      console.log(data)
     } catch (err) {
+      console.log(err)
       setError(err.message);
     } finally {
       setLoading(false);
@@ -39,8 +44,8 @@ const JobDetailPage = () => {
   }, []);
 
   useEffect(() => {
-    if (jobId) fetchJobDetails();
-  }, [jobId]);
+    fetchJobDetails();
+  },[]);
 
   const handleApply = () => {
     if (job?.redirect_url) {

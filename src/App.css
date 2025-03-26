@@ -5,18 +5,6 @@ body {
   margin: 0;
 }
 
-:root {
-  --secondary0: #ffffff;
-  --secondary0-rgb: 255,255,255;
-  --secondary1: #f8f9fa;
-  --primary: #6366f1;
-  --primary-rgb: 99,102,241;
-  --accent: #8b5cf6;
-  --text: #1f2937;
-  --text-rgb: 31,41,55;
-  --secondary: #e5e7eb;
-}
-
 .container {
   margin: 0 auto;
 }

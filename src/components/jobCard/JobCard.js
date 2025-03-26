@@ -1,6 +1,7 @@
 import React from 'react';
 import { Colors } from '../../constants/Colors';
 import "./JobCard.css"
+import { useNavigate } from 'react-router-dom';
 
 /**
  * JobCard component displays a job posting card with company details
@@ -21,7 +22,7 @@ const JobCard = ({ job }) => {
   const companyName = job.company?.display_name || 'Company not specified';
   const salary = job.salary_min ? `£${job.salary_min.toLocaleString()}+` : 'Salary negotiable';
   const contractType = job.contract_time?.replace('_', ' ') || 'Full time';
-
+  const navigate = useNavigate()
   const postedDate = new Date(job.created).toLocaleDateString('en-GB', {
     day: 'numeric',
     month: 'short',
@@ -29,7 +30,7 @@ const JobCard = ({ job }) => {
   });
 
   return (
-    <div className="job-card">
+    <div onClick={()=>navigate(`/jobs/${job?.id}`)} className="job-card">
       <div className="job-card__header">
         {/* <img 
           src={companyLogo} 
