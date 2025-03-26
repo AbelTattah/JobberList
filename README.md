@@ -48,6 +48,6 @@ serve -s build
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss the updates.
 
-# Figma Link
+## Figma Link
 [ClickOnMe](https://www.figma.com/design/H7aHlYLaHiR2TcUMFVP5aE/Job-Board?node-id=6-3189&t=ZfSPPgUHVM5nuClc-1)
 
