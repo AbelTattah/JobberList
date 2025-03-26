@@ -22,9 +22,7 @@ const SearchBar = ({ value, placeholder, onChangeText, onPress, ...props }) => {
 
   const handleKeyPress = (event) => {
     if (event.key === 'Enter') {
-      console.log('Enter key pressed:');
       onPress()
-      // You can add any additional logic here, such as submitting a form or updating state
     }
   };
 
