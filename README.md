@@ -5,7 +5,6 @@ JobbeList is a React-based job listing application that helps users find job opp
 ## Features
 - Browse job listings
 - Search and filter job posts
-- Post new job opportunities
 - Responsive design for mobile and desktop
 
 ## Project Structure

@@ -12,12 +12,13 @@ import "./JobListing.css"
 const JobListingPage = () => {
   const [filters, setFilters] = useState();
   const [searchQuery, setSearchQuery] = useState('');
-  const { jobs, loading, error, fetchJobs } = useJobListings({
+  const { jobs, loading, error, fetchJobs, searchJobs } = useJobListings({
     ...filters,
   });
 
   const handleSearch = () => {
     // Trigger search implementation
+    fetchJobs()
   };
 
   // const handleFilterChange = (filterId) => {
@@ -30,6 +31,10 @@ const JobListingPage = () => {
   useEffect(()=>{
     fetchJobs()
   },[])
+
+  useEffect(()=>{
+    fetchJobs(filters)
+  },[filters])
 
   if (error) {
     return (
@@ -49,11 +54,11 @@ const JobListingPage = () => {
         <SearchBar
           value={searchQuery}
           onChangeText={setSearchQuery}
-          onSearch={handleSearch}
+          onPress={searchJobs}
           placeholder="Search jobs..."
         />
         <FilterBar 
-          onFilterPress={()=>{}}
+          onFilterPress={fetchJobs}
           onSearchPress={handleSearch}
         />
         {loading ? (

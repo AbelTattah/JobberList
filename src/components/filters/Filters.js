@@ -17,9 +17,9 @@ const FilterBar = ({
     { id: 'contract', label: 'Contract' },
   ];
 
-  const handleFilterClick = (filterId) => {
+  const handleFilterClick = (filterId,index) => {
     setActiveFilter(filterId);
-    onFilterPress(filterId);
+    // onFilterPress(fi);
   };
 
   return (
@@ -27,10 +27,10 @@ const FilterBar = ({
       <div style={styles.scrollContainer}>
         {/* Job Type Filters */}
         <div style={styles.filterGroup}>
-          {filters.map((filter) => (
+          {filters.map((filter,index) => (
             <button
               key={filter.id}
-              onClick={() => handleFilterClick(filter.id)}
+              onClick={() => handleFilterClick(filter.id,index)}
               style={{
                 ...styles.filterButton,
                 ...(activeFilter === filter.id && styles.activeFilter)

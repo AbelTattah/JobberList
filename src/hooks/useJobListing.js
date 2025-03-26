@@ -1,3 +1,4 @@
+import { keyboard } from '@testing-library/user-event/dist/keyboard';
 import { useState, useEffect, useCallback } from 'react';
 
 export const APP_ID = process.env.REACT_APP_ADZUNA_APP_ID;
@@ -37,6 +38,41 @@ export const useJobListings = () => {
       setLoading(false);
     }
   };
+  
+  const searchJobs = async (keywords) => {
+    // keywords = keywords.split(" ")
+    // keywords = keywords.map((item,index)=>{
+    //   if(index!==keywords.length-1) {
+    //     keywords +="+"+item
+    //   } else {
+    //     keywords += item
+    //   }
+    // })
+    console.log(keywords)
 
-  return { jobs, loading, error, fetchJobs };
+    try {
+      setLoading(true);
+      const params = new URLSearchParams({
+        app_id: APP_ID,
+        app_key: APP_KEY,
+        what:keywords,
+        results_per_page: '20'
+      });
+
+      const response = await fetch(
+        `https://api.adzuna.com/v1/api/jobs/gb/search/1?${params}`
+      );
+      
+      if (!response.ok) throw new Error('Failed to fetch jobs');
+      
+      const data = await response.json();
+      setJobs(data.results);
+    } catch (err) {
+      setError(err.message || 'Failed to load jobs');
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  return { jobs, loading, error, fetchJobs, searchJobs };
 };

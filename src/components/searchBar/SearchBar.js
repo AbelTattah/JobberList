@@ -20,6 +20,14 @@ const SearchBar = ({ value, placeholder, onChangeText, onPress, ...props }) => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  const handleKeyPress = (event) => {
+    if (event.key === 'Enter') {
+      console.log('Enter key pressed:');
+      onPress()
+      // You can add any additional logic here, such as submitting a form or updating state
+    }
+  };
+
   const containerWidth = windowWidth < 360 ? '70%' : windowWidth < 768 ? '75%' : '80%';
 
   return (
@@ -44,6 +52,7 @@ const SearchBar = ({ value, placeholder, onChangeText, onPress, ...props }) => {
       <input
         type="text"
         value={value}
+        onKeyDown={handleKeyPress}
         placeholder={placeholder}
         onChange={(e) => onChangeText(e.target.value)}
         style={{
