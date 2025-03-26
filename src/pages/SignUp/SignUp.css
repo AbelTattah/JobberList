@@ -1,0 +1,29 @@
+.authContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--backGround);
+}
+
+.footer {
+    display: flex;
+    gap: 8px;
+    margin-top: 20px;
+}
+
+.footerText {
+    color: var(--text);
+}
+
+.link {
+    color: var(--primary);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.link:hover {
+    text-decoration: underline;
+}

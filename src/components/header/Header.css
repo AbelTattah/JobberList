@@ -1,0 +1,108 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    background-color: white;
+    border-bottom: 1px solid #e0e0e0;
+    position: relative;
+}
+
+.logo {
+    font-weight: 700;
+    color: #2d2d2d;
+    margin: 0;
+}
+
+.text {
+    color: #666;
+    line-height: 20px;
+    font-size: 14px;
+    margin: 0;
+}
+
+.HeaderlinksContainer {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.navButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 8px;
+}
+
+.navButton:hover {
+    color: #1a73e8;
+}
+
+.hamburger {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+}
+
+.hamburgerLine {
+    width: 24px;
+    height: 2px;
+    background-color: #2d2d2d;
+    margin: 4px 0;
+}
+
+.mobileMenu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 250px;
+    height: 100%;
+    background-color: white;
+    padding: 20px;
+    box-shadow: -2px 0 8px rgba(0,0,0,0.1);
+    z-index: 100;
+    transition: transform 0.3s ease;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.3);
+    z-index: 99;
+}
+
+.mobileMenuContent {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 40px;
+}
+
+.mobileMenuItem {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    padding: 12px;
+    text-align: left;
+}
+
+.mobileMenuItem:hover {
+    background-color: #f5f5f5;
+}
+
+.closeButton {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 32px;
+    color: #666;
+}

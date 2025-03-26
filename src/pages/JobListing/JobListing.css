@@ -1,0 +1,137 @@
+.jobsContainer {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: var(--backGround);
+}
+
+.jobsContent {
+    flex: 1;
+    padding: 0 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.jobs-grid {
+    display: grid;
+    gap: 16px;
+    width: 90%;
+    margin:0 auto;
+    align-self: center;
+    padding-bottom: 24px;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+.error-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.error-text {
+    color: var(--error);
+    font-size: 18px;
+    text-align: center;
+    padding: 20px;
+}
+
+.empty-text {
+    color: var(--text);
+    font-size: 16px;
+    text-align: center;
+    margin-top: 20px;
+    grid-column: 1 / -1;
+}
+
+@media (min-width: 768px) {
+    .jobs-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .jobs-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Search and Filters Container */
+.search-filters-container {
+    position: sticky;
+    top: 0;
+    background: white;
+    z-index: 10;
+    padding: 1rem 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  }
+  
+  /* Results Meta */
+  .results-meta {
+    padding: 1rem 0;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 1.5rem;
+  }
+  
+  .results-count {
+    color: #666;
+    font-size: 0.9rem;
+  }
+  
+  /* Empty State */
+  .empty-state {
+    text-align: center;
+    padding: 4rem 0;
+    grid-column: 1 / -1;
+  }
+  
+  .empty-text {
+    color: #444;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .reset-filters {
+    background: none;
+    border: 2px solid var(--primary);
+    color: var(--primary);
+    padding: 0.75rem 2rem;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  .reset-filters:hover {
+    background: var(--primary);
+    color: white;
+  }
+  
+  /* Error State */
+  .error-container {
+    text-align: center;
+    padding: 4rem 1rem;
+  }
+  
+  .error-text {
+    color: #dc3545;
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .retry-button {
+    background: #dc3545;
+    color: white;
+    border: none;
+    padding: 0.75rem 2rem;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+  }
+  
+  .retry-button:hover {
+    opacity: 0.9;
+  }
